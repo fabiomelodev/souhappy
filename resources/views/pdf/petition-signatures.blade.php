@@ -71,12 +71,12 @@
         {{ $petition->condominium->name }}
         &middot; {{ $signatures->count() }} {{ $signatures->count() === 1 ? 'assinatura' : 'assinaturas' }}
         @if ($petition->published_at)
-            &middot; Publicado em {{ $petition->published_at->format('d/m/Y H:i') }}
+            &middot; Publicado em {{ $petition->published_at->timezone(config('app.display_timezone'))->format('d/m/Y H:i') }}
         @endif
         @if ($petition->deadline_at)
-            &middot; Prazo final: {{ $petition->deadline_at->format('d/m/Y H:i') }}
+            &middot; Prazo final: {{ $petition->deadline_at->timezone(config('app.display_timezone'))->format('d/m/Y H:i') }}
         @endif
-        &middot; Exportado em {{ now()->format('d/m/Y H:i') }}
+        &middot; Exportado em {{ now()->timezone(config('app.display_timezone'))->format('d/m/Y H:i') }}
     </p>
 
     @if ($includeContent)
@@ -107,7 +107,7 @@
                         <td class="signature-cell">
                             <img src="{{ $signature->signatureAbsolutePath() }}" alt="Assinatura de {{ $signature->full_name }}">
                         </td>
-                        <td class="date-cell">{{ $signature->signed_at->format('d/m/Y H:i') }}</td>
+                        <td class="date-cell">{{ $signature->signed_at->timezone(config('app.display_timezone'))->format('d/m/Y H:i') }}</td>
                     </tr>
                 @endforeach
             </tbody>

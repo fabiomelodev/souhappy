@@ -21,7 +21,7 @@
                             </p>
                             @if ($petition->deadline_at)
                                 <p class="mt-0.5 text-xs text-slate-400">
-                                    Prazo: {{ $petition->deadline_at->format('d/m/Y') }}
+                                    Prazo: {{ $petition->deadline_at->timezone(config('app.display_timezone'))->format('d/m/Y') }}
                                 </p>
                             @endif
                         </div>

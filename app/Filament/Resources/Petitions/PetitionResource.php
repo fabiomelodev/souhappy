@@ -17,6 +17,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PetitionResource extends Resource
 {
@@ -29,6 +30,8 @@ class PetitionResource extends Resource
     protected static ?string $pluralModelLabel = 'Abaixo-assinados';
 
     protected static ?string $navigationLabel = 'Abaixo-assinados';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Ferramentas';
 
     public static function exportPdfAction(): Action
     {

@@ -19,7 +19,7 @@
         <p class="mt-1 text-sm text-slate-500">
             {{ $signatures->count() }} {{ $signatures->count() === 1 ? 'assinatura' : 'assinaturas' }}
             @if ($petition->deadline_at)
-                &middot; Prazo para assinar: {{ $petition->deadline_at->format('d/m/Y \à\s H:i') }}
+                &middot; Prazo para assinar: {{ $petition->deadline_at->timezone(config('app.display_timezone'))->format('d/m/Y \à\s H:i') }}
             @endif
         </p>
 
@@ -46,7 +46,7 @@
         @elseif (! $petition->isOpen())
             <p class="text-sm text-slate-500">
                 @if ($petition->status === 'open' && $petition->isPastDeadline())
-                    O prazo para assinar este abaixo-assinado terminou em {{ $petition->deadline_at->format('d/m/Y \à\s H:i') }}.
+                    O prazo para assinar este abaixo-assinado terminou em {{ $petition->deadline_at->timezone(config('app.display_timezone'))->format('d/m/Y \à\s H:i') }}.
                 @else
                     Este abaixo-assinado está encerrado e não aceita mais assinaturas.
                 @endif
@@ -112,7 +112,7 @@
                             <p class="font-medium text-slate-800">{{ $signature->full_name }}</p>
                             <p class="text-slate-500">Torre {{ $signature->tower }}, apto {{ $signature->apartment_number }}</p>
                         </div>
-                        <span class="shrink-0 text-slate-400">{{ $signature->signed_at->format('d/m/Y') }}</span>
+                        <span class="shrink-0 text-slate-400">{{ $signature->signed_at->timezone(config('app.display_timezone'))->format('d/m/Y') }}</span>
                     </li>
                 @endforeach
             </ul>

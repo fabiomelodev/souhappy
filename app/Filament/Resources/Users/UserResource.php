@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class UserResource extends Resource
 {
@@ -27,6 +28,8 @@ class UserResource extends Resource
     protected static ?string $pluralModelLabel = 'Moradores';
 
     protected static ?string $navigationLabel = 'Moradores';
+
+    protected static UnitEnum|string|null $navigationGroup = 'Moradores';
 
     public static function form(Schema $schema): Schema
     {
