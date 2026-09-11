@@ -2,6 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Auth\RegisterCouncilMember;
+use App\Filament\Pages\Tenancy\EditCondominiumProfile;
+use App\Filament\Pages\Tenancy\RegisterCondominium;
+use App\Models\Condominium;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,9 +31,14 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('SouHappy')
             ->login()
+            ->registration(RegisterCouncilMember::class)
+            ->tenant(Condominium::class, slugAttribute: 'slug', ownershipRelationship: 'condominium')
+            ->tenantRegistration(RegisterCondominium::class)
+            ->tenantProfile(EditCondominiumProfile::class)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#C6242A'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
