@@ -17,14 +17,7 @@
         </div>
 
         <div>
-            <label for="password" class="block text-sm font-medium text-slate-700">Senha</label>
-            <input
-                wire:model="password"
-                type="password"
-                id="password"
-                required
-                class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600"
-            >
+            <x-password-input wire:model="password" id="password" label="Senha" required />
             @error('password') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
         </div>
 

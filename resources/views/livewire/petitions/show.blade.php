@@ -57,19 +57,19 @@
             <div class="grid gap-4 sm:grid-cols-2">
                 <div class="sm:col-span-2">
                     <label class="block text-sm font-medium text-slate-700">Nome completo</label>
-                    <input wire:model="fullName" type="text" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary-600 focus:ring-primary-600 sm:text-sm">
+                    <input wire:model="fullName" type="text" class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600">
                     @error('fullName') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-slate-700">Torre</label>
-                    <input wire:model="tower" type="text" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary-600 focus:ring-primary-600 sm:text-sm">
+                    <input wire:model="tower" type="text" class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600">
                     @error('tower') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-slate-700">Apartamento</label>
-                    <input wire:model="apartmentNumber" type="text" class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary-600 focus:ring-primary-600 sm:text-sm">
+                    <input wire:model="apartmentNumber" type="text" class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600">
                     @error('apartmentNumber') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
                 </div>
             </div>
