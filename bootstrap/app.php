@@ -21,6 +21,14 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->prepend(ForceHttps::class);
 
         $middleware->redirectGuestsTo(fn () => route('resident.login'));
+
+        $middleware->redirectUsersTo(function (Request $request) {
+            $condominium = $request->user()?->condominium;
+
+            return $condominium
+                ? route('resident.dashboard', ['condominium' => $condominium->slug])
+                : '/admin';
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

@@ -38,6 +38,7 @@
                     type="text"
                     id="tower"
                     required
+                    placeholder="Ex: Torre 1"
                     class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600"
                 >
                 @error('tower') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
@@ -48,8 +49,11 @@
                 <input
                     wire:model="apartmentNumber"
                     type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
                     id="apartmentNumber"
                     required
+                    placeholder="Ex: 123"
                     class="mt-1 block w-full rounded-lg border-2 border-slate-400/60 px-4 py-3 text-base shadow-sm focus:border-primary-600 focus:ring-primary-600"
                 >
                 @error('apartmentNumber') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror

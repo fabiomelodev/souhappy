@@ -39,7 +39,7 @@ class Register extends Component
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'string', 'min:8', 'same:passwordConfirmation'],
             'tower' => ['required', 'string', 'max:255'],
-            'apartmentNumber' => ['required', 'string', 'max:255'],
+            'apartmentNumber' => ['required', 'integer'],
         ]);
 
         $user = User::create([
